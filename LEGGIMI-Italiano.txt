@@ -1,0 +1,187 @@
+=====================================================================
+  PANNELLO LATERALE CON IL MOUSE PER UNREAL WORLD  (urw-panel.ahk)
+=====================================================================
+
+Un pannello di tasti che si colloca in una delle bande nere ai lati
+del gioco (UnReal World viene disegnato in 4:3). Ogni tasto invia al
+gioco il tasto vero senza togliergli il focus, così si può giocare
+quasi tutto con il mouse.
+
+
+---------------------------------------------------------------------
+ INSTALLAZIONE E AVVIO
+---------------------------------------------------------------------
+
+1. Installare AutoHotkey v2 (https://www.autohotkey.com).
+2. Aprire UnReal World.
+3. Fare doppio clic su urw-panel.ahk.
+
+Il pannello appare sul lato destro. Per chiuderlo: tasto "Chiudi",
+oppure clic destro sull'icona verde "H" nell'area di notifica → Exit.
+
+Il pannello parte in spagnolo; cliccare il tasto 🌐 finché non appare
+"Italiano". La scelta viene ricordata.
+
+
+---------------------------------------------------------------------
+ DISPOSIZIONE
+---------------------------------------------------------------------
+
+In alto ci sono i tasti del pannello (non inviano tasti al gioco,
+tranne Aiuto, Salva ed Esci gioco):
+
+   [ 🔒 Bloc.  ]  [ ⇄ Lato    ]  [ 🌐 Lingua    ]
+   [ Nascondi  ]  [ Chiudi    ]  [ Aiuto        ]
+   [ Salva     ]  [ Esci gioco ] [ Ripristina   ]
+
+Sotto c'è una riga di stato che mostra l'ultimo tasto inviato (per
+esempio "Inventario → i") o cosa fare in ogni modalità.
+
+Poi vengono i tasti del gioco, dai meno usati (in alto) ai più usati
+(in basso). Ogni gruppo ha il suo colore:
+
+   Verde lime ...... menu (inventario, abilità, crea…)
+   Azzurro ......... informazioni (armatura, profilo, mappa, F1…)
+   Grigio .......... sopravvivenza (mangia, bevi, fuoco, dormi…)
+   Giallo .......... aspetta, osserva, esamina, zoom
+   Rosso ........... combattimento e caccia
+   Marrone ......... attività (raccogli, lascia, apri, corri…)
+   Arancione ....... tasti singoli (4, 5, 6, 8, Tab, PgUp, PgDn)
+   Blu ............. movimento e rotazioni
+   Magenta ......... Spazio e Invio
+   Bianco .......... Esc
+
+In fondo ci sono Spazio, Invio ed Esc, più grandi.
+
+
+---------------------------------------------------------------------
+ USO
+---------------------------------------------------------------------
+
+- Clic su un tasto = quel tasto viene premuto nel gioco.
+- Tenendo premuto il tasto si ripete per: frecce, passi laterali,
+  aspetta un turno, zoom e + / −.
+- "Salva" (Ctrl+S) ed "Esci gioco" (Shift+Q) chiedono conferma prima
+  di inviare il tasto.
+- Clic centrale (la rotellina) del mouse = Esc, ma solo quando la
+  finestra attiva è il gioco.
+
+
+---------------------------------------------------------------------
+ IL LUCCHETTO: SPOSTARE E COLORARE I TASTI
+---------------------------------------------------------------------
+
+Ogni clic sul lucchetto passa alla modalità successiva:
+
+   🔒 Bloc.  →  🔓 Modif.  →  🎨 Colori  →  🔒 Bloc.
+
+Finché il lucchetto non è chiuso, i tasti NON inviano nulla al gioco.
+
+🔓 MODIF. (spostare i tasti)
+   Lo sfondo del pannello diventa bordeaux.
+   1. Cliccare un tasto: viene evidenziato in verde.
+   2. Cliccare un altro tasto (o una cella vuota "·"): si scambiano di
+      posto.
+   Anche i tasti larghi (Spazio, Esc) si possono spostare; se non
+   entrano nel posto scelto, appare "Non ci sta lì".
+   "Ripristina" torna all'ordine originale.
+
+🎨 COLORI (colorare i tasti)
+   Lo sfondo del pannello diventa blu scuro e sotto la riga di stato
+   appare una tavolozza.
+   1. Cliccare un colore della tavolozza: viene segnato con ✓.
+   2. Cliccare i tasti da colorare. Se ne possono colorare diversi di
+      seguito con lo stesso colore.
+   - Il quadratino ↺ restituisce a ogni tasto cliccato il suo colore
+     originale.
+   - Il colore del testo (nero o bianco) viene scelto da solo, in base
+     allo sfondo.
+   - "Ripristina", in questa modalità, riporta TUTTI i colori a quelli
+     originali.
+   Si possono colorare tutti i tasti del gioco e anche Aiuto, Salva ed
+   Esci gioco. I tasti che controllano il pannello (lucchetto, Lato,
+   Lingua, Nascondi, Chiudi, Ripristina) non si colorano: cliccandoli
+   eseguono la loro azione.
+
+Le modifiche di posizione e di colore vengono salvate da sole.
+
+
+---------------------------------------------------------------------
+ ALTRI TASTI DEL PANNELLO
+---------------------------------------------------------------------
+
+⇄ Lato ....... sposta il pannello sull'altro lato dello schermo.
+🌐 Lingua ..... passa tra spagnolo, inglese, finlandese, portoghese e
+               italiano. (Il menu dell'area di notifica resta nella
+               lingua con cui è stato avviato lo script.)
+Nascondi ..... nasconde il pannello e lascia una linguetta "☰" sul
+               bordo dello schermo; un clic sulla linguetta lo mostra
+               di nuovo.
+Chiudi ....... chiude il pannello (non il gioco).
+
+
+---------------------------------------------------------------------
+ SCORCIATOIE DA TASTIERA
+---------------------------------------------------------------------
+
+   Ctrl+Alt+P ............ mostra / nascondi il pannello
+   Ctrl+Alt+L ............ cambia lato
+   Doppio clic sull'icona nell'area di notifica = mostra / nascondi
+
+
+---------------------------------------------------------------------
+ DOVE VENGONO SALVATE LE TUE SCELTE
+---------------------------------------------------------------------
+
+In urw-panel.ini, nella stessa cartella dello script:
+
+   [panel]   lato e lingua
+   [layout]  ordine dei tasti
+   [colors]  colore scelto per ogni tasto
+
+Cancellando quel file (con il pannello chiuso) tutto torna come
+all'inizio.
+
+
+---------------------------------------------------------------------
+ IMPOSTAZIONI AVANZATE
+---------------------------------------------------------------------
+
+All'inizio di urw-panel.ahk ci sono valori che si possono cambiare con
+il Blocco note (poi riaprire lo script):
+
+   PANEL_W ....... larghezza del pannello in pixel; 0 = calcolarla da sola
+   GAME_RATIO .... proporzioni dell'immagine del gioco (4/3)
+   OPACITY ....... trasparenza del pannello; 255 = opaco
+   USE_EMOJI ..... false se lucchetto, globo o tavolozza non si vedono
+   SEND_MODE ..... modo di inviare i tasti: "Event", "Input" o "Play"
+   KEY_DELAY / KEY_PRESS ....... tempi di ogni tasto (ms)
+   REPEAT_FIRST / REPEAT_EVERY . tempi della ripetizione (ms)
+   TARGET_WIN .... finestra a cui inviare i tasti (facoltativo)
+   MBUTTON_ESC ... true / false: clic centrale = Esc
+   GAME_WIN ...... programma del gioco, per il clic centrale
+
+Un po' più sotto, accanto ai colori dei gruppi:
+
+   PALETTE ....... colori della tavolozza della modalità 🎨, in formato
+                   esadecimale (es. "C0392B"). Si possono cambiare o
+                   aggiungere colori.
+   PAL_ROWS ...... numero di righe della tavolozza
+   PAL_H ......... altezza di ogni riga della tavolozza (1.0 = un tasto)
+
+
+---------------------------------------------------------------------
+ SE QUALCOSA NON FUNZIONA
+---------------------------------------------------------------------
+
+- Il gioco non reagisce ai tasti: provare SEND_MODE := "Input" o
+  "Play".
+- Il clic centrale non invia Esc: controllare che GAME_WIN corrisponda
+  al programma del gioco (o lasciarlo vuoto "" perché funzioni in
+  tutte le finestre).
+- Al posto di lucchetto, globo o tavolozza si vedono quadratini:
+  impostare USE_EMOJI := false.
+- Il pannello copre parte del gioco o è troppo stretto: regolare
+  PANEL_W.
+- Qualcosa sembra strano dopo aver spostato o colorato i tasti: nella
+  modalità corrispondente, "Ripristina".

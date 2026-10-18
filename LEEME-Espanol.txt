@@ -1,0 +1,177 @@
+=====================================================================
+  PANEL LATERAL CON MOUSE PARA UNREAL WORLD  (urw-panel.ahk)
+=====================================================================
+
+Un panel de botones que se ubica en una de las franjas negras a los
+costados del juego (UnReal World se dibuja en 4:3). Cada botón manda la
+tecla real al juego, sin sacarle el foco, así se puede jugar casi todo
+con el mouse.
+
+
+---------------------------------------------------------------------
+ INSTALACIÓN Y ARRANQUE
+---------------------------------------------------------------------
+
+1. Instalar AutoHotkey v2 (https://www.autohotkey.com).
+2. Abrir UnReal World.
+3. Doble clic en urw-panel.ahk.
+
+El panel aparece en el costado derecho. Para cerrarlo: botón "Cerrar",
+o clic derecho en el ícono verde "H" de la bandeja → Exit.
+
+
+---------------------------------------------------------------------
+ CÓMO ESTÁ ORGANIZADO
+---------------------------------------------------------------------
+
+Arriba están los botones del panel (no mandan teclas al juego, salvo
+Ayuda, Guardar y Salir juego):
+
+   [ 🔒 Bloq. ]  [ ⇄ Lado ]  [ 🌐 Idioma ]
+   [ Ocultar  ]  [ Cerrar ]  [ Ayuda    ]
+   [ Guardar  ]  [ Salir  ]  [ Restaurar]
+
+Debajo hay una línea de estado que muestra lo último que se mandó
+(por ejemplo "Inventario → i") o qué hacer en cada modo.
+
+Después vienen los botones del juego, de menos usados (arriba) a más
+usados (abajo). Cada grupo tiene su color:
+
+   Verde lima ...... menús (inventario, habilidades, fabricar…)
+   Celeste ......... información (armadura, perfil, mapa, F1…)
+   Gris ............ supervivencia (comer, beber, fuego, dormir…)
+   Amarillo ........ esperar, mirar, examinar, zoom
+   Rojo ............ combate y caza
+   Marrón .......... actividad (recoger, soltar, abrir, correr…)
+   Naranja ......... teclas sueltas (4, 5, 6, 8, Tab, RePág, AvPág)
+   Azul ............ movimiento y giros
+   Magenta ......... Espacio y Enter
+   Blanco .......... Esc
+
+Al fondo están Espacio, Enter y Esc, más grandes.
+
+
+---------------------------------------------------------------------
+ USO
+---------------------------------------------------------------------
+
+- Clic en un botón = se aprieta esa tecla en el juego.
+- Mantener apretado repite la tecla en: flechas, pasos laterales,
+  esperar 1 turno, zoom y + / −.
+- "Guardar" (Ctrl+S) y "Salir juego" (Shift+Q) piden confirmación
+  antes de mandar la tecla.
+- Clic central (la ruedita) del mouse = Esc, pero solo cuando la
+  ventana activa es el juego.
+
+
+---------------------------------------------------------------------
+ EL CANDADITO: MOVER Y PINTAR BOTONES
+---------------------------------------------------------------------
+
+Cada clic en el candado pasa al modo siguiente:
+
+   🔒 Bloq.  →  🔓 Editar  →  🎨 Colores  →  🔒 Bloq.
+
+Mientras el candado no está cerrado, los botones NO mandan teclas.
+
+🔓 EDITAR (mover botones de lugar)
+   El fondo del panel se pone bordó.
+   1. Tocar un botón: queda marcado en verde.
+   2. Tocar otro botón (o una celda vacía "·"): se intercambian.
+   Los botones anchos (Espacio, Esc) también se pueden mover; si no
+   entran en el lugar elegido, aparece "No cabe ahí".
+   "Restaurar" vuelve al orden original.
+
+🎨 COLORES (pintar botones)
+   El fondo del panel se pone azul oscuro y aparece una paleta debajo
+   de la línea de estado.
+   1. Tocar un color de la paleta: queda marcado con ✓.
+   2. Tocar los botones que se quieran pintar. Se pueden pintar varios
+      seguidos con el mismo color.
+   - El cuadrito ↺ devuelve a cada botón tocado su color original.
+   - El color del texto (negro o blanco) se elige solo, según el fondo.
+   - "Restaurar", en este modo, vuelve TODOS los colores a los
+     originales.
+   Se pueden pintar todos los botones del juego y también Ayuda,
+   Guardar y Salir juego. Los botones que manejan el panel (candado,
+   Lado, Idioma, Ocultar, Cerrar, Restaurar) no se pintan: al tocarlos
+   hacen su acción.
+
+Los cambios de lugar y de color se guardan solos.
+
+
+---------------------------------------------------------------------
+ OTROS BOTONES DEL PANEL
+---------------------------------------------------------------------
+
+⇄ Lado ....... pasa el panel al otro costado de la pantalla.
+🌐 Idioma ..... cambia entre español, inglés, finés, portugués e
+               italiano. (El menú de la bandeja queda en el idioma con
+               que arrancó el script.)
+Ocultar ...... esconde el panel y deja una lengüeta "☰" en el borde de
+               la pantalla; un clic en la lengüeta lo vuelve a mostrar.
+Cerrar ....... cierra el panel (no el juego).
+
+
+---------------------------------------------------------------------
+ ATAJOS DE TECLADO
+---------------------------------------------------------------------
+
+   Ctrl+Alt+P ............ mostrar / ocultar el panel
+   Ctrl+Alt+L ............ cambiar de lado
+   Doble clic en el ícono de la bandeja = mostrar / ocultar
+
+
+---------------------------------------------------------------------
+ DÓNDE SE GUARDA LO QUE ELEGÍS
+---------------------------------------------------------------------
+
+En urw-panel.ini, en la misma carpeta que el script:
+
+   [panel]   lado e idioma
+   [layout]  orden de los botones
+   [colors]  colores elegidos para cada botón
+
+Borrar ese archivo (con el panel cerrado) deja todo como al principio.
+
+
+---------------------------------------------------------------------
+ CONFIGURACIÓN AVANZADA
+---------------------------------------------------------------------
+
+Al principio de urw-panel.ahk hay valores que se pueden cambiar con el
+Bloc de notas (después, volver a abrir el script):
+
+   PANEL_W ....... ancho del panel en píxeles; 0 = calcularlo solo
+   GAME_RATIO .... proporción de la imagen del juego (4/3)
+   OPACITY ....... transparencia del panel; 255 = opaco
+   USE_EMOJI ..... false si el candado, el globo o la paleta no se ven
+   SEND_MODE ..... forma de mandar teclas: "Event", "Input" o "Play"
+   KEY_DELAY / KEY_PRESS ....... tiempos de cada tecla (ms)
+   REPEAT_FIRST / REPEAT_EVERY . tiempos de la repetición (ms)
+   TARGET_WIN .... ventana a la que mandar las teclas (opcional)
+   MBUTTON_ESC ... true / false: clic central = Esc
+   GAME_WIN ...... programa del juego, para el clic central
+
+Un poco más abajo, junto a los colores de los grupos:
+
+   PALETTE ....... colores de la paleta del modo 🎨, en formato hex
+                   (ej. "C0392B"). Se pueden cambiar o agregar.
+   PAL_ROWS ...... cantidad de filas de la paleta
+   PAL_H ......... alto de cada fila de la paleta (1.0 = un botón)
+
+
+---------------------------------------------------------------------
+ SI ALGO NO ANDA
+---------------------------------------------------------------------
+
+- El juego no reacciona a los botones: probar SEND_MODE := "Input" o
+  "Play".
+- El clic central no manda Esc: revisar que GAME_WIN coincida con el
+  programa del juego (o dejarlo vacío "" para que funcione en todas las
+  ventanas).
+- Se ven cuadraditos en vez del candado, el globo o la paleta: poner
+  USE_EMOJI := false.
+- El panel tapa parte del juego o queda angosto: ajustar PANEL_W.
+- Algo quedó raro después de mover o pintar botones: en el modo
+  correspondiente, "Restaurar".
