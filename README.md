@@ -4,6 +4,8 @@ A clickable side panel for playing **UnReal World** with the mouse, written in A
 
 The panel sits in one of the black bars beside the game (UnReal World is drawn in 4:3). Each button sends the real key to the game without taking focus away from it.
 
+![URW Panel next to UnReal World](urw-panel-screenshot.webp)
+
 ## Features
 
 - Buttons for menus, survival, combat, movement and more, grouped by color.
