@@ -19,6 +19,10 @@ con el mouse.
 El panel aparece en el costado derecho. Para cerrarlo: botón "Cerrar",
 o clic derecho en el ícono verde "H" de la bandeja → Exit.
 
+La primera vez, el panel arranca en el idioma de Windows (o en inglés
+si no es uno de los seis). Con el botón 🌐 se cambia; la elección
+queda guardada.
+
 
 ---------------------------------------------------------------------
  CÓMO ESTÁ ORGANIZADO

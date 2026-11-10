@@ -21,10 +21,14 @@ The panel sits in one of the black bars beside the game (UnReal World is drawn i
 ## Quick start
 
 1. Install [AutoHotkey v2](https://www.autohotkey.com).
-2. Download `urw-panel.ahk`.
+2. **[Download URW Panel](https://github.com/kurtzito/UW/releases/latest/download/URW-Panel.zip)** and extract the zip.
 3. Open UnReal World, then double-click `urw-panel.ahk`.
 
-The panel starts in Spanish: click the 🌐 button to change the language.
+The panel starts in your Windows language (English if it isn't one of the six). Click the 🌐 button to switch.
+
+It doesn't modify the game or its files: it only sends key presses, like a keyboard would. The script is plain text, so you can open it and read exactly what it does.
+
+Found a missing command or have an idea? [Open an issue](https://github.com/kurtzito/UW/issues).
 
 ## Instructions
 

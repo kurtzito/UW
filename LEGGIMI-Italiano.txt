@@ -19,8 +19,9 @@ quasi tutto con il mouse.
 Il pannello appare sul lato destro. Per chiuderlo: tasto "Chiudi",
 oppure clic destro sull'icona verde "H" nell'area di notifica → Exit.
 
-Il pannello parte in spagnolo; cliccare il tasto 🌐 finché non appare
-"Italiano". La scelta viene ricordata.
+La prima volta il pannello parte nella lingua di Windows (o in
+inglese, se non è una delle sei). Cliccare il tasto 🌐 per cambiarla;
+la scelta viene ricordata.
 
 
 ---------------------------------------------------------------------

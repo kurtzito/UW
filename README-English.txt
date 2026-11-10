@@ -19,8 +19,9 @@ everything with the mouse.
 The panel appears on the right side. To close it: the "Close" button,
 or right-click the green "H" icon in the system tray → Exit.
 
-The panel starts in Spanish; click the 🌐 button until it shows
-"English". The choice is remembered.
+The first time, the panel starts in your Windows language (or in
+English if it isn't one of the six). Click the 🌐 button to switch;
+the choice is remembered.
 
 
 ---------------------------------------------------------------------

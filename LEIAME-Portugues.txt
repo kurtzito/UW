@@ -19,8 +19,9 @@ mouse.
 O painel aparece no lado direito. Para fechá-lo: botão "Fechar", ou
 clique direito no ícone verde "H" da bandeja do sistema → Exit.
 
-O painel começa em espanhol; clique no botão 🌐 até aparecer
-"Português". A escolha fica salva.
+Na primeira vez, o painel começa no idioma do Windows (ou em inglês,
+se não for um dos seis). Clique no botão 🌐 para trocar; a escolha
+fica salva.
 
 
 ---------------------------------------------------------------------

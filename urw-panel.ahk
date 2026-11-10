@@ -14,6 +14,7 @@ Persistent
 ;    botones de lugar) → 🎨 colores (elegir un color de la paleta y tocar
 ;    los botones para pintarlos) → 🔒 cerrado.
 ;  - Idiomas: español, inglés, finés, portugués (Brasil), italiano y ruso.
+;    La primera vez arranca en el idioma de Windows (o en inglés si no está).
 ;  - Ocultar deja una lengüeta en el borde de la pantalla; un clic la
 ;    devuelve. También: Ctrl+Alt+P, Ctrl+Alt+L (lado), doble clic en el
 ;    ícono de la bandeja.
@@ -22,6 +23,8 @@ Persistent
 ;  Lo que elegís (lado, idioma, orden y colores de botones) se guarda en
 ;  urw-panel.ini, junto a este archivo.
 ; =====================================================================
+
+VERSION := "1.1"
 
 ; ---------- CONFIGURACIÓN (se puede tocar) ----------
 PANEL_W      := 0        ; ancho del panel en píxeles; 0 = calcularlo solo
@@ -54,7 +57,19 @@ IndexOf(arr, val) {
     return 0
 }
 
-LANGI := IndexOf(LANGCODES, IniRead(INI_FILE, "panel", "lang", "es"))
+; Idioma de Windows, para la primera vez que se abre el panel; si no está entre los nuestros, inglés
+SystemLang() {
+    switch Integer("0x" . A_Language) & 0x3FF {
+        case 0x0A: return "es"
+        case 0x0B: return "fi"
+        case 0x16: return "pt"
+        case 0x10: return "it"
+        case 0x19: return "ru"
+    }
+    return "en"
+}
+
+LANGI := IndexOf(LANGCODES, IniRead(INI_FILE, "panel", "lang", SystemLang()))
 if (LANGI = 0)
     LANGI := 1
 SIDE := IniRead(INI_FILE, "panel", "side", "R")
@@ -683,7 +698,7 @@ MakeTab() {
 BuildGui()
 MakeTab()
 
-A_IconTip := "Panel UnReal World"
+A_IconTip := "URW Panel v" . VERSION
 A_TrayMenu.Add()
 A_TrayMenu.Add(U("tray"), TogglePanel)
 A_TrayMenu.Add(U("traysd"), SwitchSide)
