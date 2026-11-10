@@ -13,7 +13,7 @@ Persistent
 ;  - Candadito: cada clic pasa por 🔒 cerrado → 🔓 mover (intercambiar
 ;    botones de lugar) → 🎨 colores (elegir un color de la paleta y tocar
 ;    los botones para pintarlos) → 🔒 cerrado.
-;  - Idiomas: español, inglés, finés, portugués (Brasil) e italiano.
+;  - Idiomas: español, inglés, finés, portugués (Brasil), italiano y ruso.
 ;  - Ocultar deja una lengüeta en el borde de la pantalla; un clic la
 ;    devuelve. También: Ctrl+Alt+P, Ctrl+Alt+L (lado), doble clic en el
 ;    ícono de la bandeja.
@@ -43,8 +43,8 @@ SetKeyDelay(KEY_DELAY, KEY_PRESS)
 SetTitleMatchMode(2)
 
 ; ---------- Idiomas ----------
-LANGCODES := ["es", "en", "fi", "pt", "it"]
-LANGNAMES := ["Español", "English", "Suomi", "Português", "Italiano"]
+LANGCODES := ["es", "en", "fi", "pt", "it", "ru"]
+LANGNAMES := ["Español", "English", "Suomi", "Português", "Italiano", "Русский"]
 
 IndexOf(arr, val) {
     for i, v in arr {
@@ -61,34 +61,34 @@ SIDE := IniRead(INI_FILE, "panel", "side", "R")
 if (SIDE != "L" && SIDE != "R")
     SIDE := "R"
 
-; Textos de la interfaz: [es, en, fi, pt, it]
+; Textos de la interfaz: [es, en, fi, pt, it, ru]
 UIS := Map()
-Ui(key, es, en, fi, pt, it) {
-    UIS[key] := [es, en, fi, pt, it]
+Ui(key, es, en, fi, pt, it, ru) {
+    UIS[key] := [es, en, fi, pt, it, ru]
 }
 U(key) {
     return UIS[key][LANGI]
 }
-Ui("ready",   "Listo", "Ready", "Valmis", "Pronto", "Pronto")
-Ui("locked",  "Bloq.", "Lock", "Lukittu", "Bloq.", "Bloc.")
-Ui("editing", "Editar", "Edit", "Muokkaa", "Editar", "Modif.")
-Ui("pick1",   "Editar: elegí un botón", "Edit: pick a button", "Muokkaus: valitse painike", "Editar: escolha um botão", "Modifica: scegli un tasto")
-Ui("pick2",   "Ahora elegí con cuál cambiarlo", "Now pick the one to swap with", "Valitse vaihdettava painike", "Agora escolha com qual trocar", "Ora scegli con quale scambiare")
-Ui("nofit",   "No cabe ahí", "Doesn't fit there", "Ei mahdu sinne", "Não cabe aí", "Non ci sta lì")
-Ui("moved",   "Listo, cambiado", "Done, swapped", "Valmis, vaihdettu", "Pronto, trocado", "Fatto, scambiato")
-Ui("keysoff", "Modo edición: sin teclas", "Edit mode: keys are off", "Muokkaustila: ei näppäimiä", "Modo edição: sem teclas", "Modalità modifica: niente tasti")
-Ui("needlock","Abrí el candado primero", "Unlock first", "Avaa lukitus ensin", "Abra o cadeado primeiro", "Sblocca prima")
-Ui("resetq",  "¿Restaurar el orden original?", "Restore the original order?", "Palautetaanko alkuperäinen järjestys?", "Restaurar a ordem original?", "Ripristinare l'ordine originale?")
-Ui("paint",   "Colores", "Colors", "Värit", "Cores", "Colori")
-Ui("paint1",  "Colores: elegí un color", "Colors: pick a color", "Värit: valitse väri", "Cores: escolha uma cor", "Colori: scegli un colore")
-Ui("paint2",  "Tocá los botones a pintar", "Click buttons to paint", "Napsauta maalattavia", "Toque os botões a pintar", "Tocca i tasti da colorare")
-Ui("painted", "Listo, pintado", "Done, painted", "Valmis, maalattu", "Pronto, pintado", "Fatto, colorato")
-Ui("nobrush", "Primero elegí un color", "Pick a color first", "Valitse ensin väri", "Escolha uma cor primeiro", "Scegli prima un colore")
-Ui("resetc",  "¿Restaurar los colores originales?", "Restore the original colors?", "Palautetaanko alkuperäiset värit?", "Restaurar as cores originais?", "Ripristinare i colori originali?")
-Ui("confirm", "Confirmar", "Confirm", "Vahvista", "Confirmar", "Conferma")
-Ui("mclick",  "clic central", "middle click", "keskipainike", "clique central", "clic centrale")
-Ui("tray",    "Mostrar / ocultar panel (Ctrl+Alt+P)", "Show / hide panel (Ctrl+Alt+P)", "Näytä / piilota paneeli (Ctrl+Alt+P)", "Mostrar / ocultar painel (Ctrl+Alt+P)", "Mostra / nascondi pannello (Ctrl+Alt+P)")
-Ui("traysd",  "Cambiar de lado (Ctrl+Alt+L)", "Switch side (Ctrl+Alt+L)", "Vaihda puolta (Ctrl+Alt+L)", "Trocar de lado (Ctrl+Alt+L)", "Cambia lato (Ctrl+Alt+L)")
+Ui("ready",   "Listo", "Ready", "Valmis", "Pronto", "Pronto", "Готово")
+Ui("locked",  "Bloq.", "Lock", "Lukittu", "Bloq.", "Bloc.", "Блок.")
+Ui("editing", "Editar", "Edit", "Muokkaa", "Editar", "Modif.", "Правка")
+Ui("pick1",   "Editar: elegí un botón", "Edit: pick a button", "Muokkaus: valitse painike", "Editar: escolha um botão", "Modifica: scegli un tasto", "Правка: выберите кнопку")
+Ui("pick2",   "Ahora elegí con cuál cambiarlo", "Now pick the one to swap with", "Valitse vaihdettava painike", "Agora escolha com qual trocar", "Ora scegli con quale scambiare", "Теперь выберите, с какой поменять")
+Ui("nofit",   "No cabe ahí", "Doesn't fit there", "Ei mahdu sinne", "Não cabe aí", "Non ci sta lì", "Сюда не помещается")
+Ui("moved",   "Listo, cambiado", "Done, swapped", "Valmis, vaihdettu", "Pronto, trocado", "Fatto, scambiato", "Готово, переставлено")
+Ui("keysoff", "Modo edición: sin teclas", "Edit mode: keys are off", "Muokkaustila: ei näppäimiä", "Modo edição: sem teclas", "Modalità modifica: niente tasti", "Режим правки: клавиши выкл.")
+Ui("needlock","Abrí el candado primero", "Unlock first", "Avaa lukitus ensin", "Abra o cadeado primeiro", "Sblocca prima", "Сначала откройте замок")
+Ui("resetq",  "¿Restaurar el orden original?", "Restore the original order?", "Palautetaanko alkuperäinen järjestys?", "Restaurar a ordem original?", "Ripristinare l'ordine originale?", "Вернуть исходный порядок?")
+Ui("paint",   "Colores", "Colors", "Värit", "Cores", "Colori", "Цвета")
+Ui("paint1",  "Colores: elegí un color", "Colors: pick a color", "Värit: valitse väri", "Cores: escolha uma cor", "Colori: scegli un colore", "Цвета: выберите цвет")
+Ui("paint2",  "Tocá los botones a pintar", "Click buttons to paint", "Napsauta maalattavia", "Toque os botões a pintar", "Tocca i tasti da colorare", "Нажмите кнопки для окраски")
+Ui("painted", "Listo, pintado", "Done, painted", "Valmis, maalattu", "Pronto, pintado", "Fatto, colorato", "Готово, окрашено")
+Ui("nobrush", "Primero elegí un color", "Pick a color first", "Valitse ensin väri", "Escolha uma cor primeiro", "Scegli prima un colore", "Сначала выберите цвет")
+Ui("resetc",  "¿Restaurar los colores originales?", "Restore the original colors?", "Palautetaanko alkuperäiset värit?", "Restaurar as cores originais?", "Ripristinare i colori originali?", "Вернуть исходные цвета?")
+Ui("confirm", "Confirmar", "Confirm", "Vahvista", "Confirmar", "Conferma", "Подтверждение")
+Ui("mclick",  "clic central", "middle click", "keskipainike", "clique central", "clic centrale", "средняя кнопка")
+Ui("tray",    "Mostrar / ocultar panel (Ctrl+Alt+P)", "Show / hide panel (Ctrl+Alt+P)", "Näytä / piilota paneeli (Ctrl+Alt+P)", "Mostrar / ocultar painel (Ctrl+Alt+P)", "Mostra / nascondi pannello (Ctrl+Alt+P)", "Показать / скрыть панель (Ctrl+Alt+P)")
+Ui("traysd",  "Cambiar de lado (Ctrl+Alt+L)", "Switch side (Ctrl+Alt+L)", "Vaihda puolta (Ctrl+Alt+L)", "Trocar de lado (Ctrl+Alt+L)", "Cambia lato (Ctrl+Alt+L)", "Сменить сторону (Ctrl+Alt+L)")
 
 ; ---------- Colores por grupo: [fondo, texto] ----------
 COL := Map()
@@ -150,7 +150,7 @@ SaveColors() {
 }
 
 ; ---------- Definición de botones ----------
-; B(id, grupo, tecla a enviar, tecla a mostrar, "es|en|fi|pt|it", "nombres completos" (opcional), opciones)
+; B(id, grupo, tecla a enviar, tecla a mostrar, "es|en|fi|pt|it|ru", "nombres completos" (opcional), opciones)
 ; Teclas: + = Shift, ^ = Ctrl, ! = Alt. Una letra con + sale en mayúscula.
 DEF := Map()
 B(id, grp, snd, shown, labels, tips := "", o := "") {
@@ -168,126 +168,132 @@ B(id, grp, snd, shown, labels, tips := "", o := "") {
 }
 
 ; ----- Panel (arriba, fijos) -----
-B("H_LOCK",  "sys",  "", "", "x|x|x|x|x", "", {act: "lock", emo: true})
-B("H_SIDE",  "sys",  "", "", "⇄ Lado|⇄ Side|⇄ Puoli|⇄ Lado|⇄ Lato", "", {act: "side"})
-B("H_LANG",  "sys",  "", "", "x|x|x|x|x", "", {act: "lang", emo: true})
-B("H_HIDE",  "sys",  "", "", "Ocultar|Hide|Piilota|Ocultar|Nascondi", "", {act: "hide"})
-B("H_CLOSE", "sys",  "", "", "Cerrar|Close|Sulje|Fechar|Chiudi", "", {act: "exit"})
-B("H_HELP",  "info", "?", "?", "Ayuda|Help|Ohje|Ajuda|Aiuto")
-B("H_SAVE",  "sys",  "^s", "Ctrl+S", "Guardar|Save|Tallenna|Salvar|Salva"
-   , "Guardar y salir|Save and quit|Tallenna ja poistu|Salvar e sair|Salva ed esci", {conf: true})
-B("H_QUIT",  "sys",  "+q", "Shift+Q", "Salir juego|Quit game|Lopeta peli|Sair do jogo|Esci gioco"
-   , "Salir del juego|Quit the game|Lopeta peli|Sair do jogo|Esci dal gioco", {conf: true})
-B("H_RESET", "sys",  "", "", "Restaurar|Reset|Palauta|Restaurar|Ripristina", "", {act: "reset"})
+B("H_LOCK",  "sys",  "", "", "x|x|x|x|x|x", "", {act: "lock", emo: true})
+B("H_SIDE",  "sys",  "", "", "⇄ Lado|⇄ Side|⇄ Puoli|⇄ Lado|⇄ Lato|⇄ Сторона", "", {act: "side"})
+B("H_LANG",  "sys",  "", "", "x|x|x|x|x|x", "", {act: "lang", emo: true})
+B("H_HIDE",  "sys",  "", "", "Ocultar|Hide|Piilota|Ocultar|Nascondi|Скрыть", "", {act: "hide"})
+B("H_CLOSE", "sys",  "", "", "Cerrar|Close|Sulje|Fechar|Chiudi|Закрыть", "", {act: "exit"})
+B("H_HELP",  "info", "?", "?", "Ayuda|Help|Ohje|Ajuda|Aiuto|Справка")
+B("H_SAVE",  "sys",  "^s", "Ctrl+S", "Guardar|Save|Tallenna|Salvar|Salva|Сохранить"
+   , "Guardar y salir|Save and quit|Tallenna ja poistu|Salvar e sair|Salva ed esci|Сохранить и выйти", {conf: true})
+B("H_QUIT",  "sys",  "+q", "Shift+Q", "Salir juego|Quit game|Lopeta peli|Sair do jogo|Esci gioco|Выйти"
+   , "Salir del juego|Quit the game|Lopeta peli|Sair do jogo|Esci dal gioco|Выйти из игры", {conf: true})
+B("H_RESET", "sys",  "", "", "Restaurar|Reset|Palauta|Restaurar|Ripristina|Сброс", "", {act: "reset"})
 
 ; ----- Menús e información -----
-B("INV",  "menu", "i", "i", "Inventario|Inventory|Tavarat|Inventário|Inventario")
-B("SKL",  "menu", "s", "s", "Habilidades|Skills|Taidot|Habilidades|Abilità")
-B("CRF",  "menu", "+m", "Shift+M", "Fabricar|Craft|Valmista|Fabricar|Crea")
-B("PLUS", "menu", "{+}", "+", "+ Mejorar|+ Improve|+ Paranna|+ Melhorar|+ Migliora", "", {rep: true})
-B("MINS", "menu", "-", "-", "− Bajar|− Degrade|− Heikennä|− Reduzir|− Riduci", "", {rep: true})
-B("RIT",  "menu", "{F4}", "F4", "Rituales|Rituals|Rituaalit|Rituais|Rituali")
-B("ARM",  "info", "+a", "Shift+A", "Armadura|Armour|Panssari|Armadura|Armatura")
-B("PRF",  "info", "+p", "Shift+P", "Perfil|Profile|Profiili|Perfil|Profilo")
-B("LOG",  "info", "+l", "Shift+L", "Registro|Log|Loki|Registro|Registro")
-B("QST",  "info", "{F2}", "F2", "Misiones|Quests|Tehtävät|Missões|Missioni")
-B("MSG",  "info", "v", "v", "Mensajes|Messages|Viestit|Mensagens|Messaggi")
-B("MAP",  "info", "{F6}", "F6", "Mapa|Map|Kartta|Mapa|Mappa")
-B("ENC",  "info", "{F1}", "F1", "Enciclopedia|Encyclopedia|Tietosanak.|Enciclopédia|Enciclopedia"
-   , "Enciclopedia|Encyclopedia|Tietosanakirja|Enciclopédia|Enciclopedia")
-B("CRS",  "info", "{F5}", "F5", "Curso juego|Game course|Pelin kulku|Curso jogo|Corso gioco"
-   , "Curso del juego|Game course|Pelin kulku|Curso do jogo|Corso del gioco")
+B("INV",  "menu", "i", "i", "Inventario|Inventory|Tavarat|Inventário|Inventario|Инвентарь")
+B("SKL",  "menu", "s", "s", "Habilidades|Skills|Taidot|Habilidades|Abilità|Навыки")
+B("CRF",  "menu", "+m", "Shift+M", "Fabricar|Craft|Valmista|Fabricar|Crea|Ремесло")
+B("PLUS", "menu", "{+}", "+", "+ Mejorar|+ Improve|+ Paranna|+ Melhorar|+ Migliora|+ Лучше", "", {rep: true})
+B("MINS", "menu", "-", "-", "− Bajar|− Degrade|− Heikennä|− Reduzir|− Riduci|− Хуже", "", {rep: true})
+B("RIT",  "menu", "{F4}", "F4", "Rituales|Rituals|Rituaalit|Rituais|Rituali|Ритуалы")
+B("ARM",  "info", "+a", "Shift+A", "Armadura|Armour|Panssari|Armadura|Armatura|Броня")
+B("PRF",  "info", "+p", "Shift+P", "Perfil|Profile|Profiili|Perfil|Profilo|Профиль")
+B("LOG",  "info", "+l", "Shift+L", "Registro|Log|Loki|Registro|Registro|Журнал")
+B("QST",  "info", "{F2}", "F2", "Misiones|Quests|Tehtävät|Missões|Missioni|Задания")
+B("MSG",  "info", "v", "v", "Mensajes|Messages|Viestit|Mensagens|Messaggi|Сообщ.")
+B("MAP",  "info", "{F6}", "F6", "Mapa|Map|Kartta|Mapa|Mappa|Карта")
+B("ENC",  "info", "{F1}", "F1", "Enciclopedia|Encyclopedia|Tietosanak.|Enciclopédia|Enciclopedia|Энцикл."
+   , "Enciclopedia|Encyclopedia|Tietosanakirja|Enciclopédia|Enciclopedia|Энциклопедия")
+B("CRS",  "info", "{F5}", "F5", "Curso juego|Game course|Pelin kulku|Curso jogo|Corso gioco|Ход игры"
+   , "Curso del juego|Game course|Pelin kulku|Curso do jogo|Corso del gioco|Ход игры")
 
 ; ----- Supervivencia -----
-B("EAT",  "sup", "e", "e", "Comer|Eat|Syö|Comer|Mangia")
-B("DRK",  "sup", "q", "q", "Beber|Drink|Juo|Beber|Bevi")
-B("FIR",  "sup", "f", "f", "Fuego|Fire|Tuli|Fogo|Fuoco")
-B("WEAR", "sup", "+w", "Shift+W", "Vestir|Wear|Pue|Vestir|Indossa")
-B("TOFF", "sup", "+t", "Shift+T", "Quitar|Remove|Riisu|Tirar|Togli")
-B("SLP",  "sup", "+z", "Shift+Z", "Dormir|Sleep|Nuku|Dormir|Dormi")
-B("BUT",  "sup", "b", "b", "Destazar|Butcher|Teurasta|Esquartejar|Macella")
-B("RST",  "abs", "!-", "Alt+-", "Descansar|Rest|Lepää|Descansar|Riposa")
-B("WAIT", "abs", "-", "-", "Esperar…|Wait…|Odota…|Esperar…|Aspetta…", "Esperar (menú)|Wait (menu)|Odota (valikko)|Esperar (menu)|Aspetta (menu)")
+B("EAT",  "sup", "e", "e", "Comer|Eat|Syö|Comer|Mangia|Есть")
+B("DRK",  "sup", "q", "q", "Beber|Drink|Juo|Beber|Bevi|Пить")
+B("FIR",  "sup", "f", "f", "Fuego|Fire|Tuli|Fogo|Fuoco|Огонь")
+B("WEAR", "sup", "+w", "Shift+W", "Vestir|Wear|Pue|Vestir|Indossa|Надеть")
+B("TOFF", "sup", "+t", "Shift+T", "Quitar|Remove|Riisu|Tirar|Togli|Снять")
+B("SLP",  "sup", "+z", "Shift+Z", "Dormir|Sleep|Nuku|Dormir|Dormi|Спать")
+B("BUT",  "sup", "b", "b", "Destazar|Butcher|Teurasta|Esquartejar|Macella|Разделать")
+B("RST",  "abs", "!-", "Alt+-", "Descansar|Rest|Lepää|Descansar|Riposa|Отдых")
+B("WAIT", "abs", "-", "-", "Esperar…|Wait…|Odota…|Esperar…|Aspetta…|Ждать…", "Esperar (menú)|Wait (menu)|Odota (valikko)|Esperar (menu)|Aspetta (menu)|Ждать (меню)")
 
 ; ----- Mirar, hablar, zoom -----
-B("LOOK", "abs", "l", "l", "Mirar obj.|Look target|Katso kohde|Olhar alvo|Osserva"
-   , "Mirar objetivo|Look at target|Katso kohdetta|Olhar o alvo|Osserva il bersaglio")
-B("EXA",  "abs", "x", "x", "Exam. ady.|Exam. adj.|Tutki vier.|Exam. adj.|Esam. adiac."
-   , "Examinar adyacente|Examine adjacent|Tutki viereistä|Examinar adjacente|Esamina adiacente")
-B("EXH",  "abs", ":", ":", "Exam. aquí|Examine here|Tutki tässä|Exam. aqui|Esamina qui"
-   , "Examinar aquí|Examine here|Tutki tässä|Examinar aqui|Esamina qui")
-B("TALK", "abs", "+c", "Shift+C", "Hablar|Talk|Puhu|Falar|Parla")
-B("ORD",  "abs", "{!}", "!", "Órdenes|Orders|Käske|Ordens|Ordini"
-   , "Dar órdenes|Give orders|Anna käsky|Dar ordens|Dai ordini")
-B("MMT",  "key", "7", "7", "Mant. mapa|Map maint.|Kart. ylläp.|Manut. mapa|Manut. mappa"
-   , "Mantener mapa (7)|Map maintenance (7)|Kartan ylläpito (7)|Manutenção do mapa (7)|Manutenzione mappa (7)")
-B("ZP",   "abs", "^{NumpadAdd}", "Ctrl++", "Zoom +|Zoom +|Zoomaa +|Zoom +|Zoom +", "", {rep: true})
-B("ZM",   "abs", "^{NumpadSub}", "Ctrl+-", "Zoom −|Zoom −|Zoomaa −|Zoom −|Zoom −", "", {rep: true})
+B("LOOK", "abs", "l", "l", "Mirar obj.|Look target|Katso kohde|Olhar alvo|Osserva|Осм. цель"
+   , "Mirar objetivo|Look at target|Katso kohdetta|Olhar o alvo|Osserva il bersaglio|Осмотреть цель")
+B("EXA",  "abs", "x", "x", "Exam. ady.|Exam. adj.|Tutki vier.|Exam. adj.|Esam. adiac.|Осм. ряд."
+   , "Examinar adyacente|Examine adjacent|Tutki viereistä|Examinar adjacente|Esamina adiacente|Осмотреть рядом")
+B("EXH",  "abs", ":", ":", "Exam. aquí|Examine here|Tutki tässä|Exam. aqui|Esamina qui|Осм. здесь"
+   , "Examinar aquí|Examine here|Tutki tässä|Examinar aqui|Esamina qui|Осмотреть здесь")
+B("TALK", "abs", "+c", "Shift+C", "Hablar|Talk|Puhu|Falar|Parla|Говорить")
+B("ORD",  "abs", "{!}", "!", "Órdenes|Orders|Käske|Ordens|Ordini|Приказы"
+   , "Dar órdenes|Give orders|Anna käsky|Dar ordens|Dai ordini|Отдать приказ")
+B("MMT",  "key", "7", "7", "Mant. mapa|Map maint.|Kart. ylläp.|Manut. mapa|Manut. mappa|Ред. карты"
+   , "Mantener mapa (7)|Map maintenance (7)|Kartan ylläpito (7)|Manutenção do mapa (7)|Manutenzione mappa (7)|Ведение карты (7)")
+B("ZP",   "abs", "^{NumpadAdd}", "Ctrl++", "Zoom +|Zoom +|Zoomaa +|Zoom +|Zoom +|Зум +", "", {rep: true})
+B("ZM",   "abs", "^{NumpadSub}", "Ctrl+-", "Zoom −|Zoom −|Zoomaa −|Zoom −|Zoom −|Зум −", "", {rep: true})
 
 ; ----- Combate -----
-B("KICK", "cmb", "0", "0", "Patada|Kick|Potku|Chute|Calcio")
-B("PUNC", "cmb", "9", "9", "Puñetazo|Punch|Nyrkkisku|Soco|Pugno")
-B("RATK", "cmb", "3", "3", "Rep. ataque|Repeat atk.|Toista isku|Rep. ataque|Ripeti att."
-   , "Repetir ataque|Repeat attack|Toista isku|Repetir ataque|Ripeti attacco")
-B("W1",   "cmb", "1", "1", "Arma 1|Weapon 1|Ase 1|Arma 1|Arma 1")
-B("W2",   "cmb", "2", "2", "Arma 2|Weapon 2|Ase 2|Arma 2|Arma 2")
-B("THR",  "cmb", "t", "t", "Lanzar|Throw|Heitä|Lançar|Lancia")
-B("WLD",  "cmb", "w", "w", "Empuñar|Wield|Ota käteen|Empunhar|Impugna")
-B("HEAL", "cmb", "{F7}", "F7", "Curar|Treat|Hoida|Curar|Cura"
-   , "Curar heridas|Treat wounds|Hoida haavat|Curar feridas|Cura le ferite")
-B("SWAP", "act", "+x", "Shift+X", "Alt. manos|Swap hands|Vaihda kättä|Trocar mãos|Cambia mano"
-   , "Cambiar de mano|Swap hands|Vaihda kättä|Trocar de mão|Cambia mano")
+B("KICK", "cmb", "0", "0", "Patada|Kick|Potku|Chute|Calcio|Пинок")
+B("PUNC", "cmb", "9", "9", "Puñetazo|Punch|Nyrkkisku|Soco|Pugno|Кулак")
+B("RATK", "cmb", "3", "3", "Rep. ataque|Repeat atk.|Toista isku|Rep. ataque|Ripeti att.|Повт. атаку"
+   , "Repetir ataque|Repeat attack|Toista isku|Repetir ataque|Ripeti attacco|Повторить атаку")
+B("W1",   "cmb", "1", "1", "Arma 1|Weapon 1|Ase 1|Arma 1|Arma 1|Оружие 1")
+B("W2",   "cmb", "2", "2", "Arma 2|Weapon 2|Ase 2|Arma 2|Arma 2|Оружие 2")
+B("THR",  "cmb", "t", "t", "Lanzar|Throw|Heitä|Lançar|Lancia|Метнуть")
+B("WLD",  "cmb", "w", "w", "Empuñar|Wield|Ota käteen|Empunhar|Impugna|В руку")
+B("HEAL", "cmb", "{F7}", "F7", "Curar|Treat|Hoida|Curar|Cura|Лечить"
+   , "Curar heridas|Treat wounds|Hoida haavat|Curar feridas|Cura le ferite|Лечить раны")
+B("SWAP", "act", "+x", "Shift+X", "Alt. manos|Swap hands|Vaihda kättä|Trocar mãos|Cambia mano|Др. рука"
+   , "Cambiar de mano|Swap hands|Vaihda kättä|Trocar de mão|Cambia mano|Сменить руку")
 
 ; ----- Actividad -----
-B("TKW",  "act", "^,", "Ctrl+,", "Tomar+emp.|Take+wield|Ota+käteen|Pegar+emp.|Prendi+imp."
-   , "Tomar y empuñar|Take and wield|Ota ja tartu aseeseen|Pegar e empunhar|Prendi e impugna")
-B("HIDA", "act", "h", "h", "Esconderse|Hide|Piiloudu|Esconder|Nasconditi")
-B("STND", "act", "u", "u", "Levantarse|Stand up|Nouse|Levantar|Alzati")
-B("PICK", "act", "g", "g", "Recoger|Pick up|Poimi|Pegar|Raccogli")
-B("DROP", "act", "d", "d", "Soltar|Drop|Pudota|Soltar|Lascia")
-B("PCKA", "act", "+g", "Shift+G", "Recoger ady.|Pick adj.|Poimi vier.|Pegar adj.|Racc. adiac."
-   , "Recoger adyacente|Pick up adjacent|Poimi viereinen|Pegar adjacente|Raccogli adiacente")
-B("MOVO", "act", "m", "m", "Mover obj.|Move obj.|Siirrä esine|Mover obj.|Sposta ogg."
-   , "Mover objeto|Move object|Siirrä esinettä|Mover objeto|Sposta oggetto")
-B("PUSH", "act", "p", "p", "Empujar|Push|Työnnä|Empurrar|Spingi")
-B("APLY", "act", "a", "a", "Aplicar|Apply|Käytä|Aplicar|Applica")
-B("OPEN", "act", "o", "o", "Abrir pta.|Open door|Avaa ovi|Abrir porta|Apri porta"
-   , "Abrir puerta|Open door|Avaa ovi|Abrir porta|Apri porta")
-B("CLOS", "act", "c", "c", "Cerrar pta.|Close door|Sulje ovi|Fechar porta|Chiudi porta"
-   , "Cerrar puerta|Close door|Sulje ovi|Fechar porta|Chiudi porta")
-B("REPT", "act", "r", "r", "Repetir|Repeat|Toista|Repetir|Ripeti")
-B("MOVE", "act", "/", "/", "Movimiento|Movement|Liike|Movimento|Movimento")
+B("TKW",  "act", "^,", "Ctrl+,", "Tomar+emp.|Take+wield|Ota+käteen|Pegar+emp.|Prendi+imp.|Взять+ор."
+   , "Tomar y empuñar|Take and wield|Ota ja tartu aseeseen|Pegar e empunhar|Prendi e impugna|Взять и вооружиться")
+B("HIDA", "act", "h", "h", "Esconderse|Hide|Piiloudu|Esconder|Nasconditi|Спрятаться")
+B("STND", "act", "u", "u", "Levantarse|Stand up|Nouse|Levantar|Alzati|Встать")
+B("PICK", "act", "g", "g", "Recoger|Pick up|Poimi|Pegar|Raccogli|Подобрать")
+B("DROP", "act", "d", "d", "Soltar|Drop|Pudota|Soltar|Lascia|Выложить")
+B("PCKA", "act", "+g", "Shift+G", "Recoger ady.|Pick adj.|Poimi vier.|Pegar adj.|Racc. adiac.|Подоб. ряд."
+   , "Recoger adyacente|Pick up adjacent|Poimi viereinen|Pegar adjacente|Raccogli adiacente|Подобрать рядом")
+B("MOVO", "act", "m", "m", "Mover obj.|Move obj.|Siirrä esine|Mover obj.|Sposta ogg.|Сдвинуть"
+   , "Mover objeto|Move object|Siirrä esinettä|Mover objeto|Sposta oggetto|Передвинуть предмет")
+B("PUSH", "act", "p", "p", "Empujar|Push|Työnnä|Empurrar|Spingi|Толкнуть")
+B("APLY", "act", "a", "a", "Aplicar|Apply|Käytä|Aplicar|Applica|Примен.")
+B("OPEN", "act", "o", "o", "Abrir pta.|Open door|Avaa ovi|Abrir porta|Apri porta|Откр. дв."
+   , "Abrir puerta|Open door|Avaa ovi|Abrir porta|Apri porta|Открыть дверь")
+B("CLOS", "act", "c", "c", "Cerrar pta.|Close door|Sulje ovi|Fechar porta|Chiudi porta|Закр. дв."
+   , "Cerrar puerta|Close door|Sulje ovi|Fechar porta|Chiudi porta|Закрыть дверь")
+B("REPT", "act", "r", "r", "Repetir|Repeat|Toista|Repetir|Ripeti|Повторить")
+B("MOVE", "act", "/", "/", "Movimiento|Movement|Liike|Movimento|Movimento|Движение")
 
 ; ----- Teclas sueltas -----
-B("N4",   "key", "4", "4", "4|4|4|4|4")
-B("N5",   "key", "5", "5", "5|5|5|5|5")
-B("N6",   "key", "6", "6", "6|6|6|6|6")
-B("N8",   "key", "8", "8", "8|8|8|8|8")
-B("TAB",  "key", "{Tab}", "Tab", "Tab|Tab|Tab|Tab|Tab")
-B("PGU",  "key", "{PgUp}", "RePág", "RePág|PgUp|Sivu ↑|Pág ↑|Pag ↑")
-B("PGD",  "key", "{PgDn}", "AvPág", "AvPág|PgDn|Sivu ↓|Pág ↓|Pag ↓")
+B("N4",   "key", "4", "4", "4|4|4|4|4|4")
+B("N5",   "key", "5", "5", "5|5|5|5|5|5")
+B("N6",   "key", "6", "6", "6|6|6|6|6|6")
+B("N8",   "key", "8", "8", "8|8|8|8|8|8")
+B("TAB",  "key", "{Tab}", "Tab", "Tab|Tab|Tab|Tab|Tab|Tab")
+B("PGU",  "key", "{PgUp}", "RePág", "RePág|PgUp|Sivu ↑|Pág ↑|Pag ↑|Стр ↑")
+B("PGD",  "key", "{PgDn}", "AvPág", "AvPág|PgDn|Sivu ↓|Pág ↓|Pag ↓|Стр ↓")
 
 ; ----- Movimiento -----
-B("TL",   "mov", "{Home}", "Inicio", "Giro 90° ←|Turn 90° ←|Käänny 90°←|Girar 90° ←|Gira 90° ←")
-B("UP",   "mov", "{Up}", "↑", "↑|↑|↑|↑|↑", "", {rep: true})
-B("TR",   "mov", "{PgUp}", "RePág", "Giro 90° →|Turn 90° →|Käänny 90°→|Girar 90° →|Gira 90° →")
-B("LEFT", "mov", "{Left}", "←", "←|←|←|←|←", "", {rep: true})
-B("WT1",  "abs", ".", ".", "Esperar 1|Wait 1|Odota 1|Esperar 1|Aspetta 1"
-   , "Esperar un turno|Wait one turn|Odota yksi vuoro|Esperar um turno|Aspetta un turno", {rep: true})
-B("RGHT", "mov", "{Right}", "→", "→|→|→|→|→", "", {rep: true})
-B("SL",   "mov", "^{Left}", "Ctrl+←", "Paso ←|Step ←|Askel ←|Passo ←|Passo ←"
-   , "Paso lateral izquierdo|Sidestep left|Sivuaskel vasemmalle|Passo lateral esquerdo|Passo laterale sinistro", {rep: true})
-B("DOWN", "mov", "{Down}", "↓", "↓|↓|↓|↓|↓", "", {rep: true})
-B("SR",   "mov", "^{Right}", "Ctrl+→", "Paso →|Step →|Askel →|Passo →|Passo →"
-   , "Paso lateral derecho|Sidestep right|Sivuaskel oikealle|Passo lateral direito|Passo laterale destro", {rep: true})
-B("T180", "mov", "{End}", "Fin", "Giro 180°|Turn 180°|Käänny 180°|Girar 180°|Gira 180°")
-B("SB",   "mov", "^{Down}", "Ctrl+↓", "Paso atrás|Step back|Taka-askel|Passo atrás|Passo dietro", "", {rep: true})
-B("RUN",  "act", "+r", "Shift+R", "Correr|Run|Juokse|Correr|Corri")
+B("TL",   "mov", "{Home}", "Inicio", "Giro 90° ←|Turn 90° ←|Käänny 90°←|Girar 90° ←|Gira 90° ←|Пов. 90° ←")
+B("UP",   "mov", "{Up}", "↑", "↑|↑|↑|↑|↑|↑", "", {rep: true})
+B("TR",   "mov", "{PgUp}", "RePág", "Giro 90° →|Turn 90° →|Käänny 90°→|Girar 90° →|Gira 90° →|Пов. 90° →")
+B("LEFT", "mov", "{Left}", "←", "←|←|←|←|←|←", "", {rep: true})
+B("WT1",  "abs", ".", ".", "Esperar 1|Wait 1|Odota 1|Esperar 1|Aspetta 1|Ждать 1"
+   , "Esperar un turno|Wait one turn|Odota yksi vuoro|Esperar um turno|Aspetta un turno|Ждать один ход", {rep: true})
+B("RGHT", "mov", "{Right}", "→", "→|→|→|→|→|→", "", {rep: true})
+B("SL",   "mov", "^{Left}", "Ctrl+←", "Paso ←|Step ←|Askel ←|Passo ←|Passo ←|Шаг ←"
+   , "Paso lateral izquierdo|Sidestep left|Sivuaskel vasemmalle|Passo lateral esquerdo|Passo laterale sinistro|Шаг вбок влево", {rep: true})
+B("DOWN", "mov", "{Down}", "↓", "↓|↓|↓|↓|↓|↓", "", {rep: true})
+B("SR",   "mov", "^{Right}", "Ctrl+→", "Paso →|Step →|Askel →|Passo →|Passo →|Шаг →"
+   , "Paso lateral derecho|Sidestep right|Sivuaskel oikealle|Passo lateral direito|Passo laterale destro|Шаг вбок вправо", {rep: true})
+B("T180", "mov", "{End}", "Fin", "Giro 180°|Turn 180°|Käänny 180°|Girar 180°|Gira 180°|Пов. 180°")
+B("SB",   "mov", "^{Down}", "Ctrl+↓", "Paso atrás|Step back|Taka-askel|Passo atrás|Passo dietro|Шаг назад", "", {rep: true})
+B("RUN",  "act", "+r", "Shift+R", "Correr|Run|Juokse|Correr|Corri|Бежать")
 
 ; ----- Abajo de todo -----
-B("SPC",  "spc", "{Space}", "Espacio", "Espacio|Space|Välilyönti|Espaço|Spazio", "", {span: 2, h: 1.5, big: 3})
-B("ENT",  "spc", "{Enter}", "Enter", "Enter|Enter|Enter|Enter|Invio", "", {h: 1.5, big: 3})
-B("ESC",  "esc", "{Esc}", "Esc", "ESC|ESC|ESC|ESC|ESC", "Esc|Esc|Esc|Esc|Esc", {span: 3, h: 1.3, big: 3})
+B("SPC",  "spc", "{Space}", "Espacio", "Espacio|Space|Välilyönti|Espaço|Spazio|Пробел", "", {span: 2, h: 1.5, big: 3})
+B("ENT",  "spc", "{Enter}", "Enter", "Enter|Enter|Enter|Enter|Invio|Enter", "", {h: 1.5, big: 3})
+B("ESC",  "esc", "{Esc}", "Esc", "ESC|ESC|ESC|ESC|ESC|ESC", "Esc|Esc|Esc|Esc|Esc|Esc", {span: 3, h: 1.3, big: 3})
+
+; cada botón tiene que traer un texto por idioma
+for id, d in DEF {
+    if (d.labels.Length != LANGCODES.Length || (IsObject(d.tips) && d.tips.Length != LANGCODES.Length))
+        throw Error("Faltan traducciones en el botón " . id)
+}
 
 COLS := 3
 

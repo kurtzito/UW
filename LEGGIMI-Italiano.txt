@@ -111,8 +111,8 @@ Le modifiche di posizione e di colore vengono salvate da sole.
 ---------------------------------------------------------------------
 
 ⇄ Lato ....... sposta il pannello sull'altro lato dello schermo.
-🌐 Lingua ..... passa tra spagnolo, inglese, finlandese, portoghese e
-               italiano. (Il menu dell'area di notifica resta nella
+🌐 Lingua ..... passa tra spagnolo, inglese, finlandese, portoghese,
+               italiano e russo. (Il menu dell'area di notifica resta nella
                lingua con cui è stato avviato lo script.)
 Nascondi ..... nasconde il pannello e lascia una linguetta "☰" sul
                bordo dello schermo; un clic sulla linguetta lo mostra

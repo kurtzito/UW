@@ -105,8 +105,8 @@ Los cambios de lugar y de color se guardan solos.
 ---------------------------------------------------------------------
 
 ⇄ Lado ....... pasa el panel al otro costado de la pantalla.
-🌐 Idioma ..... cambia entre español, inglés, finés, portugués e
-               italiano. (El menú de la bandeja queda en el idioma con
+🌐 Idioma ..... cambia entre español, inglés, finés, portugués,
+               italiano y ruso. (El menú de la bandeja queda en el idioma con
                que arrancó el script.)
 Ocultar ...... esconde el panel y deja una lengüeta "☰" en el borde de
                la pantalla; un clic en la lengüeta lo vuelve a mostrar.

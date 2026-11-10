@@ -109,8 +109,8 @@ As mudanças de lugar e de cor são salvas automaticamente.
 ---------------------------------------------------------------------
 
 ⇄ Lado ....... passa o painel para o outro lado da tela.
-🌐 Idioma ..... alterna entre espanhol, inglês, finlandês, português e
-               italiano. (O menu da bandeja fica no idioma em que o
+🌐 Idioma ..... alterna entre espanhol, inglês, finlandês, português,
+               italiano e russo. (O menu da bandeja fica no idioma em que o
                script foi iniciado.)
 Ocultar ...... esconde o painel e deixa uma aba "☰" na borda da tela;
                um clique na aba mostra o painel de novo.

@@ -14,7 +14,7 @@ The panel sits in one of the black bars beside the game (UnReal World is drawn i
 - Middle click = Esc while the game is active.
 - 🔓 **Edit mode**: rearrange the buttons.
 - 🎨 **Color mode**: repaint any button with a color from a palette.
-- 5 languages: Español, English, Suomi, Português, Italiano.
+- 6 languages: Español, English, Suomi, Português, Italiano, Русский.
 - Hide it to a small tab at the screen edge, or move it to the other side.
 - Your side, language, layout and colors are saved automatically.
 
@@ -34,6 +34,7 @@ Full instructions in each language:
 - 🇪🇸 [Español](LEEME-Espanol.txt)
 - 🇧🇷 [Português](LEIAME-Portugues.txt)
 - 🇮🇹 [Italiano](LEGGIMI-Italiano.txt)
+- 🇷🇺 [Русский](README-Russian.txt)
 
 ## License
 

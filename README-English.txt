@@ -108,8 +108,8 @@ Changes to positions and colors are saved automatically.
 ---------------------------------------------------------------------
 
 ⇄ Side ....... moves the panel to the other side of the screen.
-🌐 Language ... cycles between Spanish, English, Finnish, Portuguese
-               and Italian. (The tray menu stays in the language the
+🌐 Language ... cycles between Spanish, English, Finnish, Portuguese,
+               Italian and Russian. (The tray menu stays in the language the
                script started with.)
 Hide ......... hides the panel and leaves a "☰" tab at the edge of the
                screen; click the tab to show the panel again.
